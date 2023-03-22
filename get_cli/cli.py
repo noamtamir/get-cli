@@ -4,7 +4,7 @@ from get_cli import __app_name__, __version__
 from get_cli.controller import Controller
 import get_cli.constants as c
 
-def create_app(controller: Controller):
+def create_app(controller: Controller) -> typer.Typer:
     app = typer.Typer(no_args_is_help=True)
 
     @app.callback()

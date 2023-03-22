@@ -24,16 +24,16 @@ class Storage(Protocol):
         ...
 
 class FileStorage:
-    def __init__(self, filepath: Path = c.DEFAULT_STORAGE_PATH):
+    def __init__(self, filepath: Path = c.DEFAULT_STORAGE_PATH, data: dict = c.DEFAULT_STORAGE_DATA):
         self.filepath = filepath
-        self._load_data()
+        self._load_data(data)
 
-    def _load_data(self):
+    def _load_data(self, data: dict):
         if self.filepath.exists():
             with open(self.filepath, 'r') as f:
                 self.data: dict = yaml.safe_load(f)
         else:
-            self.data = self._create_storage_file(c.DEFAULT_STORAGE_DATA)
+            self.data = self._create_storage_file(data)
 
     def _create_storage_file(self, data: dict) -> dict:
         with open(self.filepath, 'w') as f:
