@@ -63,6 +63,10 @@ class TestGetCli(TestCase):
         self.assertEqual(hey_value, 'ho')
         self.assertEqual(abc_value, '123')
 
+    def test_update_illegal(self):
+        result = runner.invoke(self.app, ['-a', 'heyho', '-a', 'abc123'])
+        self.assertEqual(result.exit_code, 1)
+
     # TODO: mock editor
     # def test_edit_with_editor(self):
     #     result = runner.invoke(self.app, ['-e', 'vim'])
