@@ -1,20 +1,27 @@
 # get-cli
 A simple unsafe cli tool to store and fetch data locally.    
-Need to fill in your parents zipcode on an online form? Need to paste your linkedin profile on a job application? Fetch them quickly from your terminal! The value will be copied to your clipboard, and you can paste it BLAZINGLY FAST! :)
+Need to fill in your parents zipcode on an online form?   
+Need to paste your linkedin profile on a job application?   
+Fetch them quickly from your terminal!    
+The value will be copied to your clipboard, and you can paste it BLAZINGLY FAST! :)
+## Dependencies
+- python 3.10
 
-## Install and setup
-...
+## Install
+```shell
+$ pip install get-cli
+```
 
 ## Quick start
 ```properties
-$ python -m get_cli hello
+$ get hello
 
 world
 ```
 
 ## Docs
 ```shell
-Usage: get-cli [OPTIONS] [KEY] COMMAND [ARGS]...
+Usage: get [OPTIONS] [KEY] COMMAND [ARGS]...
 
 A simple unsafe tool to store and fetch values locally.                                                             
                                                                                                               
@@ -34,4 +41,4 @@ Options
 ```
 
 ## Misc
-- Used python 3.11.2 to develop
+- Tested on python 3.11 + macOS
