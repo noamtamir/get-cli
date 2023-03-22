@@ -2,7 +2,6 @@ from typing import Optional, List
 import typer
 from get_cli import __app_name__, __version__
 from get_cli.controller import Controller
-import get_cli.constants as c
 
 def create_app(controller: Controller) -> typer.Typer:
     app = typer.Typer(no_args_is_help=True)
@@ -50,7 +49,7 @@ def create_app(controller: Controller) -> typer.Typer:
         )
     ) -> None:
         '''
-        A simple unsafe tool to store and fetch values locally.
+        A simple unsafe cli tool to store and fetch data locally.
         '''
         return
     return app

@@ -1,5 +1,5 @@
-# Get
-A simple unsafe way to store and fetch data locally.    
+# get-cli
+A simple unsafe cli tool to store and fetch data locally.    
 Need to fill in your parents zipcode on an online form? Need to paste your linkedin profile on a job application? Fetch them quickly from your terminal! The value will be copied to your clipboard, and you can paste it BLAZINGLY FAST! :)
 
 ## Install and setup
