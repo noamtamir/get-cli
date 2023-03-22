@@ -28,11 +28,11 @@ class FileStorage:
         self.filepath = filepath
         self._load_data(data)
 
-    def _load_data(self, data: dict):
+    def _load_data(self, data: dict | None = None):
         if self.filepath.exists():
             with open(self.filepath, 'r') as f:
                 self.data: dict = yaml.safe_load(f)
-        else:
+        elif data:
             self.data = self._create_storage_file(data)
 
     def _create_storage_file(self, data: dict) -> dict:
