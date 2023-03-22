@@ -2,7 +2,7 @@ from typer.testing import CliRunner
 from unittest import TestCase
 from unittest.mock import patch
 from get_cli import __app_name__, __version__
-from get_cli.cli import app
+from get_cli.cli import create_app
 from tests.mocks import FileStorageMock
 import get_cli.constants as c
 
