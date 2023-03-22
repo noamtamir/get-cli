@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "get-cli"
-version = "0.1.0"
+version = "0.1.1"
 description = "A simple unsafe cli tool to store and fetch data locally."
 license = "MIT"
 authors = ["noamtamir <noam.tamir@gmail.com>"]
