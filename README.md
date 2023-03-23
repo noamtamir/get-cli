@@ -40,5 +40,8 @@ Options
 --help  Show this message and exit.
 ```
 
-## Misc
-- Tested on python 3.11 + macOS
+## Tested on
+- macOS + Windows
+- python 3.8+
+
+Currently does not support linux, possible extra packages need to be installed: https://pyperclip.readthedocs.io/en/latest/index.html#not-implemented-error

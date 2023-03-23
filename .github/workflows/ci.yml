@@ -9,14 +9,14 @@ on:
       - main
 
 jobs:
-  build:
-
-    runs-on: macos-latest
+  ci:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.10", "3.11"]
+        os: [macos-latest, windows-latest]
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
 
+    runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
@@ -28,7 +28,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install flake8
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        pip install -r requirements.txt
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names

@@ -1,13 +1,13 @@
 import pyperclip
 from get_cli.storage import Storage
-from typing import Protocol
+from typing import Protocol, Optional
 
 
 class Service(Protocol):
     def __init__(self, storage: Storage):
         ...
 
-    def get(self, key: str) -> str | None:
+    def get(self, key: str) -> Optional[str]:
         ...
 
     def list_keys(self) -> str:
@@ -24,7 +24,7 @@ class GetService:
     def __init__(self, storage: Storage):
         self.storage = storage
 
-    def get(self, key: str) -> str | None:
+    def get(self, key: str) -> Optional[str]:
         value = self.storage.get(key)
         if value:
             pyperclip.copy(value)
@@ -45,5 +45,5 @@ class GetService:
     def update(self, key_values: dict):
         self.storage.update(key_values)
 
-    def edit_with_editor(self, editor: str | None):
+    def edit_with_editor(self, editor: Optional[str]):
         self.storage.edit_with_editor(editor)
