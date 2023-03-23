@@ -32,7 +32,7 @@ jobs:
     - name: Install ubuntu dependency
       run: |
         sudo apt-get install xclip xsel
-        pip install gtk PyQt4
+        pip install PyQt5
       if: matrix.os == 'ubuntu-latest'
     - name: Lint with flake8
       run: |
