@@ -68,6 +68,7 @@ class TestStorage(TestCase):
 
     def test_create_and_update(self):
         data = {'testing': 123, 'hello': 'there'}
+        self.storage.data = {'hello': 'world'}
         self.storage.update(data)
         expected = data
         self.assertEqual(self.storage.data, expected)
@@ -76,11 +77,10 @@ class TestStorage(TestCase):
         self.assertEqual(result, expected)
 
     def test_list_keys(self):
-        data = {'testing': 123, 'hey': 'there'}
-        self.storage.update(data)
+        self.storage.data = {'testing': 123, 'hey': 'there'}
 
         result = self.storage.list_keys()
-        expected = ['hello', 'testing', 'hey']
+        expected = ['testing', 'hey']
 
         self.assertListEqual(result, expected)
 

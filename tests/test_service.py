@@ -8,10 +8,9 @@ from tests.mocks import FileStorageMock
 
 
 class TestGetCallback(TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls.storage = FileStorageMock(c.DEFAULT_STORAGE_DATA)
-        cls.service = GetService(cls.storage)
+    def setUp(self):
+        self.storage = FileStorageMock(c.DEFAULT_STORAGE_DATA)
+        self.service = GetService(self.storage)
 
     def test_get(self):
         result = self.service.get('hello')
