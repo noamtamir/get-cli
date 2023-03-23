@@ -1,5 +1,5 @@
 import typer
-from typing import Protocol
+from typing import Protocol, List
 from get_cli.service import Service
 from get_cli import __app_name__, __version__
 
@@ -20,7 +20,7 @@ class Controller(Protocol):
     def list_items(flag: bool):
         ...
 
-    def update(key_values: list[str]):
+    def update(key_values: List[str]):
         ...
 
     def edit_with_editor(editor: str):
@@ -55,7 +55,7 @@ class GetController:
             print(self.service.list_items())
         raise typer.Exit()
 
-    def update(self, key_values: list[str]):
+    def update(self, key_values: List[str]):
         if key_values:
             data = dict([i.split(':') for i in key_values])
             try:

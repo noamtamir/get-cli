@@ -1,7 +1,7 @@
 import get_cli.constants as c
 import yaml
 from pathlib import Path
-from typing import Protocol, Optional
+from typing import Protocol, Optional, List
 from subprocess import call
 
 
@@ -12,7 +12,7 @@ class Storage(Protocol):
     def get(self, key: str) -> Optional[str]:
         ...
 
-    def list_keys(self) -> list[str]:
+    def list_keys(self) -> List[str]:
         ...
 
     def list_items(self) -> dict:
@@ -47,7 +47,7 @@ class FileStorage:
         value = self.data.get(key)
         return str(value) if value else None
 
-    def list_keys(self) -> list[str]:
+    def list_keys(self) -> List[str]:
         return list(self.data.keys())
 
     def list_items(self) -> dict:
