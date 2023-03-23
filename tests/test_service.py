@@ -5,8 +5,6 @@ import pyperclip
 from tests.mocks import FileStorageMock
 
 
-
-
 class TestGetCallback(TestCase):
     def setUp(self):
         self.storage = FileStorageMock(c.DEFAULT_STORAGE_DATA)

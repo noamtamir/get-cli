@@ -4,6 +4,7 @@ from get_cli import __app_name__, __version__
 from get_cli.storage import Storage
 from typing import Protocol
 
+
 class Service(Protocol):
     def __init__(self, storage: Storage):
         ...
@@ -16,14 +17,15 @@ class Service(Protocol):
 
     def list_items(self) -> str:
         ...
-    
+
     def update(self, key_values: dict):
         ...
+
 
 class GetService:
     def __init__(self, storage: Storage):
         self.storage = storage
-    
+
     def get(self, key: str) -> str | None:
         value = self.storage.get(key)
         if value:
@@ -44,7 +46,6 @@ class GetService:
 
     def update(self, key_values: dict):
         self.storage.update(key_values)
-
 
     def edit_with_editor(self, editor: str | None):
         self.storage.edit_with_editor(editor)

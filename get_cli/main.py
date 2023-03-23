@@ -5,7 +5,6 @@ from get_cli.cli import create_app
 from get_cli import __app_name__
 
 
-
 # instantiate IoC and run app
 storage = FileStorage()
 service = GetService(storage)

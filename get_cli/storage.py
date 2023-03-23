@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Protocol
 from subprocess import call
 
+
 class Storage(Protocol):
     def __init__(self, filepath: Path = c.DEFAULT_STORAGE_PATH):
         ...
@@ -16,15 +17,17 @@ class Storage(Protocol):
 
     def list_items(self) -> dict:
         ...
-    
+
     def update(self, key_values: dict):
         ...
 
     def edit_with_editor(self, editor: str | None):
         ...
 
+
 class FileStorage:
-    def __init__(self, filepath: Path = c.DEFAULT_STORAGE_PATH, data: dict = c.DEFAULT_STORAGE_DATA):
+    def __init__(self, filepath: Path = c.DEFAULT_STORAGE_PATH,
+                 data: dict = c.DEFAULT_STORAGE_DATA):
         self.filepath = filepath
         self._load_data(data)
 
@@ -49,7 +52,7 @@ class FileStorage:
 
     def list_items(self) -> dict:
         return self.data
-    
+
     def update(self, key_values: dict):
         # create and/or update one or many key value pairs
         # overrides if key exists

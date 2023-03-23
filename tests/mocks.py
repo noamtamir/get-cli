@@ -1,5 +1,6 @@
 from get_cli.storage import FileStorage
 
+
 class FileStorageMock(FileStorage):
     def __init__(self, data: dict):
         self.data = data

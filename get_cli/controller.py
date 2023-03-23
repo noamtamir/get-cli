@@ -61,7 +61,7 @@ class GetController:
             try:
                 self.service.update(data)
                 print('Success!')
-            except:
+            except Exception:
                 print('Fail...')
         raise typer.Exit()
 
