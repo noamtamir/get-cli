@@ -1,7 +1,7 @@
 import get_cli.constants as c
 import yaml
 from pathlib import Path
-from typing import Protocol
+from typing import Protocol, Optional
 from subprocess import call
 
 
@@ -9,7 +9,7 @@ class Storage(Protocol):
     def __init__(self, filepath: Path = c.DEFAULT_STORAGE_PATH):
         ...
 
-    def get(self, key: str) -> str | None:
+    def get(self, key: str) -> Optional[str]:
         ...
 
     def list_keys(self) -> list[str]:
@@ -21,7 +21,7 @@ class Storage(Protocol):
     def update(self, key_values: dict):
         ...
 
-    def edit_with_editor(self, editor: str | None):
+    def edit_with_editor(self, editor: Optional[str]):
         ...
 
 
@@ -31,7 +31,7 @@ class FileStorage:
         self.filepath = filepath
         self._load_data(data)
 
-    def _load_data(self, data: dict | None = None):
+    def _load_data(self, data: Optional[dict] = None):
         if self.filepath.exists():
             with open(self.filepath, 'r') as f:
                 self.data: dict = yaml.safe_load(f)
@@ -43,7 +43,7 @@ class FileStorage:
             yaml.safe_dump(data, f, sort_keys=True)
         return data
 
-    def get(self, key: str) -> str | None:
+    def get(self, key: str) -> Optional[str]:
         value = self.data.get(key)
         return str(value) if value else None
 
