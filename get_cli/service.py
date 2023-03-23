@@ -1,6 +1,4 @@
-import typer
 import pyperclip
-from get_cli import __app_name__, __version__
 from get_cli.storage import Storage
 from typing import Protocol
 

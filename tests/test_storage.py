@@ -1,4 +1,4 @@
-from unittest import TestCase, defaultTestLoader
+from unittest import TestCase
 from get_cli.storage import FileStorage
 from pathlib import Path
 import os

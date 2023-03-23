@@ -1,6 +1,5 @@
 from typing import Optional, List
 import typer
-from get_cli import __app_name__, __version__
 from get_cli.controller import Controller
 
 
@@ -38,14 +37,18 @@ def create_app(controller: Controller) -> typer.Typer:
             ...,
             "--add",
             "-a",
-            help='Create/update a key-value in the following format key:value. Batch support: -a key1:value1 -a key2:value2. Do not use colons (:) in your key names. Overrides if key already exists.',
+            help='Create/update a key-value in the following format '
+                 'key:value. Batch support: -a key1:value1 -a '
+                 'key2:value2. Do not use colons (:) in your key '
+                 'names. Overrides if key already exists.',
             callback=controller.update
         ),
         edit: Optional[str] = typer.Option(
             None,
             "--edit-with",
             "-e",
-            help='Edit storage (.get.yml) with your favourite editor. Tested with vim, nano, code.',
+            help='Edit storage (.get.yml) with your favourite editor. '
+                 'Tested with vim, nano, code.',
             callback=controller.edit_with_editor
         )
     ) -> None:
