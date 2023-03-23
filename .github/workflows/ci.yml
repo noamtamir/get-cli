@@ -2,11 +2,14 @@ name: CI
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches:
+      - main
   pull_request:
-    branches: [ $default-branch ]
+    branches:
+      - main
   workflow_dispatch:
-    branches: [ $default-branch ]
+    branches:
+      - main
 
 jobs:
   build:
@@ -23,6 +26,7 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
+        cache: 'pip'
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
