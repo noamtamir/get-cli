@@ -46,3 +46,19 @@ Options
 - python 3.8+
 
 Currently does not support linux, possible extra packages need to be installed: https://pyperclip.readthedocs.io/en/latest/index.html#not-implemented-error
+
+
+## Develop locally
+
+### Setup environment
+1. `brew install pyenv` [pyenv](https://github.com/pyenv/pyenv#installation)
+2. `pyenv install 3.11` (or 3.8 and above)
+3. [install poetry](https://python-poetry.org/docs/#installation)
+4. `python -m venv .venv`
+5. `source .venv/bin/activate`
+6. `poetry install`
+
+### Run
+- Tests: `poetry run python -m unittest`
+- Run: `poetry run python get_cli`
+- Publish to pypi `poetry publish --build` (Don't forget to bump the version in `pyporject.toml`)
